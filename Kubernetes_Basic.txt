@@ -1,0 +1,40 @@
+Kubernetes
+==========
+    Known as K8s
+    Its open source system for
+        Automatic Deployment
+        Management of Containerized apps
+        Scaling
+    Support differnt infrastructure (cloud, VMs etc)
+
+
+    Use Case:
+        When Developer want to host website now many problem may arise, overload of server, fail to load server
+
+        Now to tackle this Developer can install server on multiple servers by K8s
+
+Architecture of K8s
+====================
+    Two important part 
+        * Master (Control Plane) &
+        * Worker nodes (minions)
+
+    -> Cluster (group of nodes)
+    -> Master can be with worker but we should keep it seprate
+    -> Master : API server , Schedular, ETCD, Control Manager
+    -> Worker nodes : Kubelet , Kube proxy , container-runtime
+
+Components
+==========
+    * API servers ->  Provide interface (like CLI) called Kubectl
+    * Schedular ->  Assign node to newly created 
+    * ETCD -> Key value store , having all cluster data
+    * Kube controller-> (Control Manager) responsible for managing the state of cluster
+
+    * Kubelet -> Agent make sure container running in pods
+    * Continer Runtime -> Maintains network rules for comm with pods
+    * Kube proxy -> A tool responsible for running containers
+    
+    pod -> A single instance of runnnig process in a cluster.
+    ---    Can run one or more containers and share same resources.
+
