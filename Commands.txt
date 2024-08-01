@@ -1,0 +1,43 @@
+# Kubernetes Commands
+
+## Basic Commands
+    kubectl version                       # Show kubectl version
+    kubectl cluster-info                  # Display cluster information
+    kubectl get nodes                     # List all nodes in the cluster
+    kubectl get pods                      # List all pods in the current namespace
+    kubectl get services                  # List all services in the current namespace
+    kubectl get deployments               # List all deployments in the current namespace
+
+## Namespaces
+    kubectl get namespaces                # List all namespaces
+    kubectl create namespace <name>       # Create a new namespace
+    kubectl delete namespace <name>       # Delete a namespace
+
+## Pod Management
+    kubectl run <name> --image=<image>    # Create a new pod
+    kubectl delete pod <name>             # Delete a pod
+    kubectl describe pod <name>           # Show detailed information about a pod
+    kubectl logs <name>                   # Get logs from a pod
+
+## Deployments
+    kubectl create deployment <name> --image=<image>    # Create a new deployment
+    kubectl get deployments                             # List all deployments
+    kubectl delete deployment <name>                    # Delete a deployment
+    kubectl scale deployment <name> --replicas=<count>  # Scale a deployment
+
+## Services
+    kubectl expose deployment <name> --type=LoadBalancer --port=<port>    # Expose a deployment as a service
+    kubectl get services                                           # List all services
+    kubectl delete service <name>                                  # Delete a service
+
+## Configuration and Management
+    kubectl apply -f <file.yaml>          # Apply configuration from a file
+    kubectl delete -f <file.yaml>         # Delete resources from a file
+    kubectl get configmaps                # List all configmaps
+    kubectl get secrets                   # List all secrets
+
+## Miscellaneous
+    kubectl top nodes                     # Show resource usage of nodes
+    kubectl top pods                      # Show resource usage of pods
+
+# Use the --namespace=<namespace> flag to specify a namespace for the commands.
