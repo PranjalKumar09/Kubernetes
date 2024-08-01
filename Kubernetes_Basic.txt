@@ -38,3 +38,8 @@ Components
     pod -> A single instance of runnnig process in a cluster.
     ---    Can run one or more containers and share same resources.
 
+Feature
+=======
+    Cotainer Orchestration, Scalability, Load Balancing, High Availability, Rollouts & RollBack
+
+    
