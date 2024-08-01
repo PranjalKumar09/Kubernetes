@@ -35,11 +35,19 @@ Components
     * Continer Runtime -> Maintains network rules for comm with pods
     * Kube proxy -> A tool responsible for running containers
     
-    pod -> A single instance of runnnig process in a cluster.
+    pod -> A single instance of runnnig process in a cluster. 
     ---    Can run one or more containers and share same resources.
+           Inside it is container
 
 Feature
 =======
     Cotainer Orchestration, Scalability, Load Balancing, High Availability, Rollouts & RollBack
 
+
+Installtion
+===========
+
+    For running it proper we have to download minikube version then we will able to run the   kubectl cluster info 
+
+    We get the master part
     
