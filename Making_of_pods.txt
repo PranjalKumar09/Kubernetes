@@ -1,0 +1,35 @@
+Making of Pods
+==============
+    
+-> Pulling Docker Image: $ docker pull nginx
+
+-> Creating a Deployment:$ kubectl create deployment my-nginx --image=nginx
+   
+    Along with deployment this will also create the pod , pod will created with name like  <deployment-name>-<any-random-id-type>   (like my-nginx-d5b654986-slfvm)
+
+-> Checking Deployments: $ kubectl get deployments
+   Lists the deployments in the Kubernetes cluster.
+
+-> Checking Pods: $ kubectl get pods
+   Lists the pods in the Kubernetes cluster
+
+-> kubectl expose deployment <name> --type=LoadBalancer --port=<port>
+    
+
+-> $ minikube dashboard
+    Opens the Kubernetes dashboard in your default browser.
+    Output Example:
+        🎉 Opening http://127.0.0.1:43745/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/ in your default browser...
+
+-> Checking Services: $ kubectl get services
+    Lists the services in the Kubernetes cluster.
+    Output Example:
+        NAME TYPE CLUSTER-IP EXTERNAL-IP PORT(S) AGE
+        kubernetes ClusterIP 10.96.0.1 <none> 443/TCP 137m
+        my-nginx LoadBalancer 10.106.147.146 <pending> 80:32383/TCP 4m16s
+
+-> Accessing the Service: $ minikube service my-nginx
+    Opens the service my-nginx in your default browser.
+
+Note: You won't be able to access the Nginx service directly via localhost:8080 because it's inside a pod , and pod inside Kubernetes cluster, . You access it through the Minikube service URL.  (thats why we used   expose  command )
+
