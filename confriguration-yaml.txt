@@ -1,0 +1,12 @@
+YAML config for deployment & service
+====================================
+
+    Like docker yaml compose we can make it in kubernetes too.
+    Kubenetes config compose can make with any name just its extension should  ".yml
+
+    See   config_compose.yml   
+    $ kubectl apply -f config_compose.yml
+
+    By this editing file is very easy
+
+    
