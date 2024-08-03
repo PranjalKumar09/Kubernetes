@@ -14,6 +14,7 @@
     kubectl delete namespace <name>       # Delete a namespace
 
 ## Pod Management
+    kubectl set image deployment <DEPLOYMENT_NAME> <CONTAINER_NAME>=<DOCKER_IMAGE>:<NEW_TAG>
     kubectl run <name> --image=<image>    # Create a new pod
     kubectl delete pod <name>             # Delete a pod
     kubectl describe pod <name>           # Show detailed information about a pod

@@ -41,3 +41,25 @@ Rollout in K8s
     Doing changing in any file and remaking docker image new version and pushing
     $ docker build -t pranjalkumar09/webapp-demo:04 . 
     $ docker push pranjalkumar09/webapp-demo:04
+
+    Now we want to update website but also we don't want to shut it in live environment, we have to connect our container with new image
+
+    $ kubectl rollout status deployment my-webapp
+    To know status of deployment
+
+    $ kubectl set image deployment my-webapp webapp-demo=pranjalkumar09/webapp-demo:04
+
+    Old one will continue to run until new one configured , then old one temrinate and remove & new one come & it updated
+
+    When wrong/incorrect image version given it update with new image but it incorrect so ImagePullBackOff & old image (which is correct) will be there .
+
+    
+    
+    $ kubectl rollout undo deployment my-webapp 
+    To undo Rollout the recent change 
+
+
+
+
+
+
