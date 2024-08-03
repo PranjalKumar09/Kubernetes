@@ -1,0 +1,43 @@
+Demo Webapp project
+===================
+        
+    $ npx create-react-app testapp
+    $ cd testapp
+    $ npm start
+        Output-> 
+            Local:            http://localhost:3000
+            On Your Network:  http://181.55.171.155:3000
+
+    Now creating Dockerfile in testapp
+    Then running following command 
+    $ docker build -t pranjalkumar09/webapp-demo:03 . 
+
+    Then after logining to docker 
+    $ docker push pranjalkumar09/webapp-demo:03
+
+
+Deployment of K8s
+=================
+    $ minikube start
+    $ kubectl create deployment my-webapp --image=pranjalkumar09/webapp-demo:03
+    
+    kubectl get deployments    and    kubectl get pods   for checking
+
+    Even we can check in dashboard by    $ minikube dashboard 
+    We can also check logs in terminal    $ kubectl logs <pod-name>
+
+    To get more information of pod    $ kubectl describe pods
+
+    $  kubectl expose  deployment my-webapp --type=LoadBalancer --port=3000
+    Our application is inside pod so have to expose the service
+
+    $ minikube service my-webapp 
+    Finally Launch it in browser automatically 
+
+
+
+Rollout in K8s
+==============
+    Doing changing in any file and remaking docker image new version and pushing
+    $ docker build -t pranjalkumar09/webapp-demo:04 . 
+    $ docker push pranjalkumar09/webapp-demo:04
