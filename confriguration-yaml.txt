@@ -9,4 +9,12 @@ YAML config for deployment & service
 
     By this editing file is very easy
 
-    
+    Similarly we can creatt the service see   service_compose.yml
+
+    Before executing it we must check that if there other with same name we must delete that ones.
+    $ kubectl apply -f service_compose.yml
+    $ kubectl get services
+    $ minikube  service service-my-node-app
+
+    * Error Handling is also easy 
+    * By this do Self Healing
