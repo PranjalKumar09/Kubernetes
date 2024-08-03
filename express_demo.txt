@@ -1,0 +1,33 @@
+
+    $ npm install
+    $ node  index.js
+
+    Then at   localhost:3000   website will come while at if do   /exit  like   localhost:3000/exit   then this port will stop 
+
+    In Kubernetes making it, 
+
+    $ kubectl expose deployment express-demo --type=LoadBalancer --port=3000
+    Making service
+
+
+    Must check by    $ kubectl get pods   
+    $ minikube service express-demo
+
+    Now when you checking in dashboard (by  $kubectl dashboard) before & after doing   /exit  in url (url become http://---/exit )
+    dashboard will appear in red 
+    But Kubernetes will automatically fix it within some time 
+
+    And in pods (by $ kubect get pods) number of restart increase
+
+
+
+Scaling our App
+==============
+    Kubernetes fixes automatically , but it takes atleast few second, do deal with it we havd to scale it (running multiple instances)
+    $ kubectl scale deployment express-demo --replicas=4 
+    It will run now in 4 pods, pods increase all will visilble in dashboard or  $ kubectl get pods
+
+    Decrease pods further will terminate used upto limit
+
+
+    
