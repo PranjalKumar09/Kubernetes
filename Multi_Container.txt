@@ -1,0 +1,46 @@
+Multi Container
+===============
+    In this demo project we will collect data (using WEBUI node) and data collected in mongodb using multiple container. Its simple collect & display (older collected ones) emails. Also it have same feature of by adding   '/exit'  to url server stops
+sudo lsof -i :3000
+    $ docker build -t pranjalkumar09/node-mongo-db:01 .
+
+    $ docker run -d -p 27017:27017 --network my-net --name mongo mongo
+    This setup allows your Node.js application to interact with a MongoDB database.
+
+    $ npm install
+    $ node index.js
+    
+    $ docker run --network my-net -p 3000:3000 --name myapp pranjalkumar09/node-mongo-db:01
+
+    After doing  '/exit'
+
+    $ docker start myapp
+    We must do this so it can run and eariler data(emails) will also shown after fix
+
+
+    Two ways to run application with multiple containers:
+        -> Run multiple containers in same pod
+        -> Run each iner in seprate pod
+
+    
+        Run multiple containers in same pod
+        -----------------------------------
+            First make   Same_pod.yml   and   same_pod_server.yml  then
+            $ kubectl apply -f  Same_pod.yml 
+            $ kubectl apply -f same_pod_service.yml
+            $ minikube service service-my-nodedb-app
+           
+            In both database have different database
+
+
+        We can even make this in only one file (one_file.yml) , by just adding    ---   between files
+
+        Run each container in seprate pod
+        ---------------------------------
+            Steps
+            * Changes in node project (dyanmic host and port for database URL)
+            * Building image & pushing image with O3 version        
+            * YAML config requirement explanation
+            * First create depl and service config for MONGO APP so we will be having service name
+            * Now create depl and service config for NODE APP and explan how to use env varibales in config
+            * Run node-app deployment
