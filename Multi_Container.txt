@@ -39,8 +39,29 @@ sudo lsof -i :3000
         ---------------------------------
             Steps
             * Changes in node project (dyanmic host and port for database URL)
-            * Building image & pushing image with O3 version        
+            * Building image & pushing image with O2 version        
             * YAML config requirement explanation
             * First create depl and service config for MONGO APP so we will be having service name
             * Now create depl and service config for NODE APP and explan how to use env varibales in config
             * Run node-app deployment
+
+            So adding 2 line and editing 1 line in   db-demo-app   doing changes in   index.js
+
+                // add 2 line
+                const mongoHost = process.env.MONGO_HOST || 'localhost';
+                const mongoPort = process.env.MONGO_PORT || 27017;
+
+                // edit 1 line
+                mongoose.connect ('mongodb://${mongoHost}:${mongoPort}/yourDatabaseName', 
+
+            
+            Then doing docker build and docker push 
+
+            As we are doing two seprate pod we have to create 1 service 1 deployment for each pod  (total 4 files) 
+            Either we can create only 2 file , 1 for each .
+            
+            Image we need     pranjalkumar09/node-mongo-db:02      (node_app_seprate,yml)
+                              mongo                                (mongo-db_seprate.yml)
+
+                              \
+
