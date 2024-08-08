@@ -63,5 +63,15 @@ sudo lsof -i :3000
             Image we need     pranjalkumar09/node-mongo-db:02      (node_app_seprate,yml)
                               mongo                                (mongo-db_seprate.yml)
 
-                              \
+            * We dont need   type : LoadBalancer
+            
+            @ kubectl apply -f mongo_db_seprate.yml 
 
+            We using mongo as environment so we made config map    mongo_config.yml  , also must remember that values in this should in double "(quotes)
+
+             @ kubectl apply -f mongo_config.yml
+            This must apply before node_app_seprate.yml
+
+             @ kubectl apply -f node_app_seprate.yml
+
+             @ minikube service service-node-app 

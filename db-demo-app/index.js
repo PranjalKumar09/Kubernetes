@@ -12,7 +12,7 @@
 
 
     // Connect to MongoDB
-    mongoose.connect('mongodb://${mongoHost}:${mongoPort}/yourDatabaseName', {
+    mongoose.connect(`mongodb://${mongoHost}:${mongoPort}/yourDatabaseName`, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
     });
