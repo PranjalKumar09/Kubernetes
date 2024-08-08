@@ -1,0 +1,13 @@
+
+Some Other Volume Types
+
+    emptyDir
+        It is normal volume, create when pod maked . All containers in  Pod can read & write same file in  emptyDir volume. When pod removed data in this deleted permenantely
+
+    hostPath
+        Similar to mount in Docker
+        Mount files or directory from host node's filesystem into your Pod.
+
+        
+
+        This is not safe.
