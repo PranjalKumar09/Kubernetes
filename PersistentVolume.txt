@@ -1,0 +1,38 @@
+
+    Cluster
+    -------
+
+                App
+                 ^
+                 |   
+    Persistent Volume Claim (PVC)
+                 ^
+                 |
+        Persistent Volume
+                 ^
+                 |
+        Physical Storage
+
+
+    First make Persistent Volume like in    host_pv.yml    and    pvc    host_pvc.yml
+
+    Also in     mongo_db_seprate_volume.yml    must have these code snippets
+
+    $ kubectl apply -f host_pv.yml
+    $ kubectl apply -f host_pvc.yml
+    $ kubectl apply -f mongo_db_seprate_volume.yml
+
+    Also we can see in minikube dashboard in Persistent Volume Claim 
+
+
+    Now to check this is working or not we can check application by delting and bring mongo-app 
+
+    $ kubectl delete deployment mongo-app
+    Now if we check our website then all eariler data will not there
+
+    $ kubectl apply -f mongo_db_seprate_volume.yml
+    All data has came
+
+    Even This work in doing downing whole minikube 
+    $ minikube stop
+    $ minikube start
