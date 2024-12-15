@@ -10,6 +10,7 @@
 
 ## Namespaces
     kubectl get namespaces                # List all namespaces
+    kubectl get ns
     kubectl create namespace <name>       # Create a new namespace
     kubectl delete namespace <name>       # Delete a namespace
 
