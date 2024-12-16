@@ -23,6 +23,7 @@ Architecture of K8s
     -> Master can be with worker but we should keep it seprate
     -> Master : API server , Schedular, ETCD, Control Manager
     -> Worker nodes : Kubelet , Kube proxy , container-runtime
+    in workern node ,  container is there
 
 Components
 ==========
