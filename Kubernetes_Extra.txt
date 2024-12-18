@@ -1,0 +1,28 @@
+
+
+
+    Monolith
+        managing it very different
+
+    deviding big into monolith into multiple type - > Microservices
+
+
+
+
+
+
+
+    Manging Microservices
+
+    its logo telll steeerirng wheel of sheep, (docker loggo is ship with container)
+
+
+
+    $ kubectl create ns nginx
+namespace/nginx created
+
+
+    $ kubectl run nginx --image=nginx
+pod/nginx created
+    
+    
