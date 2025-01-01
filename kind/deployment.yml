@@ -18,7 +18,16 @@ spec:
       - name: nginx
         image: nginx:latest
         ports:
-        - containerPort: 80
+        - containerPort: 8000
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8000
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8000e 
+        
         resources:
           requests:
             cpu: 100m
