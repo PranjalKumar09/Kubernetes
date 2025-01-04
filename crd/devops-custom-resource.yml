@@ -1,0 +1,9 @@
+kind: DevOpsBatch
+apiVersion: google.com/v1
+metadata:
+  name: custom-resource
+spec:
+  name: Devops-Zero
+  duration: 3 months
+  platform: google.com
+  mode: Live
