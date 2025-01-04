@@ -11,22 +11,21 @@ spec:
   template:
     metadata:
       name: mongodb-pod
-      namespace: mongodb
-      labels:
+      namespace: chat-app
+      labels:  # Ensures labels match the selector
         app: mongodb
     spec:
       containers:
       - name: chatapp-mongodb
-        image:  pranjalkumar09/chatapp-mongodb:latest
+        image: mongo:latest  # Specify a stable version
         ports:
         - containerPort: 27017
         env:
         - name: MONGO_INITDB_ROOT_USERNAME
-          value: root
+          value: mongoadmin
         - name: MONGO_INITDB_ROOT_PASSWORD
-          value: root
+          value: secret
       volumes:
-      - name: mongodb-pv
+      - name: mongodb-data
         persistentVolumeClaim:
           claimName: mongodb-pvc
-        
