@@ -1,0 +1,30 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: sidecar-test
+spec:
+  volumes:
+    - name: shared-logs
+      emptyDir: {}
+
+  containers:
+  # log producer
+  - name: main-container
+    image: busybox
+    command: ["sh", "-c", "while true; do echo 'Hello, World!' >> '/media/pranjal/New\ Volume/CODES/Public/Kubernetes/advanceKubernete/app.log'; sleep 1; done"]
+    volumeMounts:
+    - name: shared-logs
+      mountPath: "/media/pranjal/New\ Volume/CODES/Public/Kubernetes/advanceKubernete"
+
+  # printer (sidecar container)
+  - name: sidecar-container
+    image: busybox
+    command: ["sh", "-c", "tail -f /media/pranjal/New\ Volume/CODES/Public/Kubernetes/advanceKubernete/app.log"]
+    volumeMounts:
+    - name: shared-logs
+      mountPath: "/media/pranjal/New\ Volume/CODES/Public/Kubernetes/advanceKubernete/app.log"
+
+
+
+
+
