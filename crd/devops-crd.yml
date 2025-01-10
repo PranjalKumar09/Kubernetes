@@ -1,0 +1,36 @@
+kind: CustomResourceDefinition
+apiVersion: apiextensions.k8s.io/v1
+metadata:
+  name: devopsbatches.google.com   # Name of the CustomResourceDefinition   ,,,,  name . group
+spec:
+  group: google.com
+  names:
+    plural: devopsbatches
+    singular: devopsbatch
+    kind: DevOpsBatch
+    shortNames:
+      - dob
+  scope: Namespaced # Use 'Namespaced' or 'Cluster' to define the scope, # we want it scope under some namespace
+  versions:
+    - name: v1
+      served: true  # it can operational run
+      storage: true # it can be saved 
+      schema: 
+        openAPIV3Schema:
+          type: object
+          properties:
+            spec:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: "This is name of DevOps Batch"
+                duration:
+                  type: string
+                  description: "This is duration of DevOps Batch"
+                mode:
+                  type: string
+                  description: "This is mode of batch, e.g., Live/Recorded"
+                platform:
+                  type: string
+                  description: "This is platform of batch"
