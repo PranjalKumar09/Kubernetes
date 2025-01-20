@@ -1,0 +1,83 @@
+
+
+##  Cleanup Guide for Minikube & Kind
+
+### 1. **Delete All Kubernetes Resources**
+
+Delete all resources across all namespaces (Pods, Services, Deployments, etc.):
+```bash
+kubectl delete all --all --all-namespaces
+```
+
+Delete all Persistent Volume Claims (PVCs) and Persistent Volumes (PVs):
+```bash
+kubectl delete pvc --all --all-namespaces
+kubectl delete pv --all
+```
+
+### 2. **Kubernetes Cluster Cleanup**
+
+#### Minikube:
+Stop and delete the Minikube cluster:
+```bash
+minikube stop
+minikube delete
+```
+
+#### Kind:
+Delete all Kind clusters:
+```bash
+kind delete clusters --all
+```
+
+### 3. **Docker Cleanup**
+
+#### Stop and Remove Docker Containers:
+Stop and remove all Docker containers:
+```bash
+docker stop $(docker ps -q)
+docker rm $(docker ps -aq)
+```
+
+#### Remove Docker Images (Optional):
+To remove all Docker images:
+```bash
+docker rmi $(docker images -q)
+```
+
+#### Remove Unused Docker Volumes (Optional):
+Clean up unused Docker volumes:
+```bash
+docker volume prune -f
+```
+
+### 4. **Verify Cleanup**
+
+#### Verify Kubernetes Resources:
+Check if all Kubernetes resources are deleted:
+```bash
+kubectl get all --all-namespaces
+```
+
+Check the status of remaining namespaces (should show only system namespaces):
+```bash
+kubectl get namespaces
+```
+
+#### Verify Docker Containers:
+Ensure no Docker containers remain:
+```bash
+docker ps -a
+```
+
+Verify if Docker images were deleted:
+```bash
+docker images
+```
+
+Check if Minikube container is stopped (if using Minikube):
+```bash
+docker ps -a | grep minikube
+```
+
+---
